@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPPORT EVO‑FINANCE</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2.5em;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+    .support-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .support-container h2 {
+      text-align: center;
+      color: #1e3c72;
+      margin-bottom: 30px;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    form label {
+      font-weight: 600;
+    }
+    form input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      width: 100%;
+    }
+    .send-btn {
+      background: #ffcc00;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.3s;
+    }
+    .send-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>SUPPORT EVO‑FINANCE</h1>
+  <div class="support-container">
+    <h2>DEMANDE DE RETRAIT</h2>
+    <form id="supportForm">
+      <label for="nom">Nom et prénom :</label>
+      <input type="text" id="nom" required>
+      
+      <label for="facebook">Nom sur Facebook ou Lien Facebook :</label>
+      <input type="text" id="facebook" required>
+      
+      <label for="telephone">Numéro de Téléphone :</label>
+      <input type="text" id="telephone" required>
+      
+      <label for="dateTransaction">Date :</label>
+      <input type="date" id="dateTransaction" required>
+      
+      <label for="montant">Montant :</label>
+      <input type="number" id="montant" required>
+      
+      <button type="submit" class="send-btn">ENVOYER</button>
+    </form>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById("supportForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        let nom = document.getElementById("nom").value;
+        let facebook = document.getElementById("facebook").value;
+        let telephone = document.getElementById("telephone").value;
+        let dateTransaction = document.getElementById("dateTransaction").value;
+        let montant = document.getElementById("montant").value;
+        
+        let subject = encodeURIComponent("Demande du retrait");
+        let body = encodeURIComponent(
+          "Nom et prénom : " + nom + "\n" +
+          "Nom sur Facebook ou Lien : " + facebook + "\n" +
+          "Numéro de Téléphone : " + telephone + "\n" +
+          "Date de Transaction : " + dateTransaction + "\n" +
+          "Montant : " + montant + " $"
+        );
+        
+        window.location.href = "mailto:evofinances2@gmail.com?subject=" + subject + "&body=" + body;
+        
+        document.getElementById("supportForm").reset();
+      });
+    });
+  </script>
+</body>
+</html>
