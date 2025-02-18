@@ -3,152 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUPPORT EVO‑FINANCE</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <title>EVO FINANCE - DEMANDE DU RETRAIT</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Style an'ny body */
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #333;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #2C3E50; /* Loko maizina */
+      color: #ECF0F1;
     }
-    h1 {
+
+    /* Style ny header miaraka amin'ny gradient miovaova */
+    .header {
       text-align: center;
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 2.5em;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+      padding: 30px 0;
+      background: linear-gradient(45deg, #e74c3c, #f1c40f, #2ecc71, #3498db, #9b59b6);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
     }
-    .support-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      margin-top: 10px;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Container an'ny formulaire */
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #34495e;
+      padding: 20px 30px;
+      border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .support-container h2 {
-      text-align: center;
-      color: #1e3c72;
-      margin-bottom: 30px;
-      font-size: 2em;
-      font-weight: 700;
-    }
+    
+    /* Style an'ny formulaire sy ny fields */
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
+    
     form label {
-      font-weight: 600;
-    }
-    form input {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-      width: 100%;
-    }
-    .send-btn {
-      background: #ffcc00;
-      color: #000;
-      padding: 10px;
-      border: none;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.3s;
-    }
-    .send-btn:hover {
-      transform: scale(1.05);
+      font-size: 1.1rem;
+      margin-bottom: 5px;
     }
     
-    /* ✅ Notification Style */
-    .notification {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #28a745;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      font-weight: bold;
-      text-align: center;
-      z-index: 1000;
-      font-size: 1.2em;
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(41,128,185, 0.5);
+    }
+    
+    /* Style an'ny bokotra */
+    form button {
+      background: #e67e22;
+      border: none;
+      padding: 12px;
+      font-size: 1.1rem;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    form button:hover {
+      background: #d35400;
     }
   </style>
 </head>
 <body>
-  <h1>SUPPORT EVO‑FINANCE</h1>
-  <div class="support-container">
-    <h2>DEMANDE DE RETRAIT</h2>
-    <form id="supportForm">
-      <label for="nom">Nom et prénom :</label>
-      <input type="text" id="nom" required>
-      
-      <label for="facebook">Nom sur Facebook ou Lien Facebook :</label>
-      <input type="text" id="facebook" required>
-      
-      <label for="téléphone ">Adresse du retrait USDT BEP20 :</label>
-      <input type="text" id="telephone" required>
-      
-      <label for="dateTransaction">Date :</label>
-      <input type="date" id="dateTransaction" required>
-      
-      <label for="montant">Montant :</label>
-      <input type="number" id="montant" required>
-      
-      <button type="submit" class="send-btn">ENVOYER</button>
-    </form>
+  <!-- En tête misy loko miovaova -->
+  <div class="header">
+    <h1>EVO FINANCE</h1>
+    <h2>DEMANDE DU RETRAIT</h2>
   </div>
 
-  <div id="notification" class="notification">
-    ✅ Votre demande a bien été reçue ! Nous vous répondrons sur Facebook.Pour continuer, cliquez sur email 
+  <!-- Container an'ny formulaire -->
+  <div class="container">
+    <form action="https://formspree.io/f/xbldpvba" method="POST">
+      <label>
+        NOM:
+        <input type="text" name="nom" required>
+      </label>
+      
+      <label>
+        NOM SUR FACEBOOK OU LIEN:
+        <input type="text" name="facebook" required>
+      </label>
+      
+      <label>
+        ADRESSE DU RETRAIT: PAYEER / ID BINANCE:
+        <input type="text" name="adresse" required>
+      </label>
+      
+      <label>
+        MONTANT À RETIRER:
+        <input type="number" name="montant" step="any" required>
+      </label>
+      
+      <label>
+        NUMERO DE TELEPHONE:
+        <input type="tel" name="telephone" required>
+      </label>
+
+      <label>
+        DATE DE TRANSACTION:
+        <input type="date" name="date" required>
+      </label>
+      
+      <button type="submit">Send</button>
+    </form>
   </div>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById("supportForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        let nom = document.getElementById("nom").value;
-        let facebook = document.getElementById("facebook").value;
-        let telephone = document.getElementById("telephone").value;
-        let dateTransaction = document.getElementById("dateTransaction").value;
-        let montant = document.getElementById("montant").value;
-        
-        let subject = encodeURIComponent("Demande du retrait");
-        let body = encodeURIComponent(
-          "Nom et prénom : " + nom + "\n" +
-          "Nom sur Facebook ou Lien : " + facebook + "\n" +
-          "Numéro de Téléphone : " + telephone + "\n" +
-          "Date de Transaction : " + dateTransaction + "\n" +
-          "Montant : " + montant + " $"
-        );
-        
-        window.location.href = "mailto:evofinances2@gmail.com?subject=" + subject + "&body=" + body;
-        
-        // ✅ Afficher la notification au centre de la page
-        let notification = document.getElementById("notification");
-        notification.style.display = "block";
-        
-        // ✅ Masquer après 20 secondes
-        setTimeout(function() {
-          notification.style.display = "none";
-        }, 20000);
-        
-        document.getElementById("supportForm").reset();
-      });
-    });
-  </script>
 </body>
 </html>
